@@ -4,7 +4,11 @@ class FioJoe4dev < Cwb::Benchmark
   def execute
     @cwb.submit_metric('cpu_model_name', timestamp, cpu_model_name) rescue nil
     @cwb.submit_metric('fio_version', timestamp, `fio --version`)
-    result = `fio seq-write.fio`
+    repetitions.times { execute_run }
+  end
+
+  def execute_run
+    result = `fio #{cli_options} seq-write.fio`
     metric = extract(result)
     @cwb.submit_metric('seq_write_bandwidth', timestamp, metric)
   end
@@ -15,6 +19,14 @@ class FioJoe4dev < Cwb::Benchmark
 
   def cpu_model_name
     @cwb.deep_fetch('cpu', '0', 'model_name')
+  end
+
+  def repetitions
+    @cwb.deep_fetch('fio', 'repetitions').to_i
+  end
+
+  def cli_options
+    @cwb.deep_fetch('fio', 'cli_options')
   end
 
   def extract(string)
