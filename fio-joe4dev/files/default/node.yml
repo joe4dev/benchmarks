@@ -1,0 +1,7 @@
+---
+cwb:
+  server: localhost
+cpu:
+  - model_name: Intel CPU mocked
+fio:
+  version: 3.13

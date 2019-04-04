@@ -1,0 +1,6 @@
+source "https://supermarket.chef.io"
+
+metadata
+
+# Fix transitive build_essential dependency requiring Chef >=13
+cookbook 'seven_zip', '~> 2.0.2'
