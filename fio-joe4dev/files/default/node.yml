@@ -5,3 +5,5 @@ cpu:
   - model_name: Intel CPU mocked
 fio:
   version: 3.13
+  repetitions: 3
+  cli_options: --runtime=10
