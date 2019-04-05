@@ -3,7 +3,7 @@
 
 ### Install
 
-# apt_update
+# apt_update 'update_package_list'
 # package 'sysbench'
 
 ### Configure
