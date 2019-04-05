@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     {
       'fio' => {
         # FIO latest releases: http://git.kernel.dk/?p=fio.git;a=summary
-        'version' => '3.12',
+        'version' => '3.13',
         'repetitions' => 3,
         'cli_options' => '--runtime=10'
       },
