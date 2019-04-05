@@ -4,3 +4,4 @@ description      'Installs and configures the fio CWB benchmark'
 version          '0.1.0'
 
 depends 'cwb', '~> 0.1.3'
+depends 'build-essential', '~> 8.2.1'
