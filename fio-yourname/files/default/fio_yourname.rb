@@ -5,7 +5,7 @@ class FioYourname < Cwb::Benchmark
     @cwb.submit_metric('cpu_model_name', timestamp, cpu_model_name) rescue nil
     result = `date`
     metric = extract(result)
-    @cwb.submit_metric(metric_name, timestamp, metric)
+    @cwb.submit_metric('current_time', timestamp, metric)
   end
 
   def timestamp
@@ -14,10 +14,6 @@ class FioYourname < Cwb::Benchmark
 
   def cpu_model_name
     @cwb.deep_fetch('cpu', '0', 'model_name')
-  end
-
-  def metric_name
-    'current_time'
   end
 
   def extract(string)
